@@ -49,7 +49,7 @@ export default function AppFunctional(props) {
       setState({...state, index: state.index-3, message:"", steps: state.steps+1})
     }else if(yon === "down" && y !== 3){
       setState({...state, index: state.index+3, message:"", steps: state.steps+1})
-    }
+    };
     if(yon === "left" && x == 1 ){
       setState({...state, message:"Sola gidemezsiniz"})
     }else if(yon === "right" && x == 3){
@@ -58,16 +58,16 @@ export default function AppFunctional(props) {
       setState({...state, message:"Yukarıya gidemezsiniz"})
     }else if(yon === "down" && y == 3){
       setState({...state, message:"Aşağıya gidemezsiniz"})
-    }
+    };
   }
 
   function ilerle(evt) {
   sonrakiIndex(evt.target.id);
-  }
+  };
 
   function onChange(evt) {
     setState({...state, email: evt.target.value})
-  }
+  };
 
   function onSubmit(evt) {
     evt.preventDefault()
@@ -76,12 +76,12 @@ export default function AppFunctional(props) {
     axios
     .post("http://localhost:9000/api/result", payload)
     .then(res =>{
-      setState({...state, message: res.data.message, email:""})
+      setState({...state, message: res.data.message, email:""});
     })
     .catch(err =>{
-      setState({...state, message: err.response.data.message, email:"" })
+      setState({...state, message: err.response.data.message, email:"" });
     })
-  }
+  };
 
   return (
     <div id="wrapper" className={props.className}>
